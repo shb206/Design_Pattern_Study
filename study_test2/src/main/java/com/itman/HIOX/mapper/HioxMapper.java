@@ -3,6 +3,7 @@ package com.itman.HIOX.mapper;
 import java.util.List;
 import java.util.Map;
 
+
 public interface HioxMapper {
 	// 재질/두께/크기유형 리스트 출력
 	public List<Map<String, Object>> cd_List();
@@ -16,4 +17,7 @@ public interface HioxMapper {
 	public boolean releaseCancelHiox(List<Integer> list);
 	// row 삭제
 	public boolean deleteHiox(List<Integer> list);
+	// row 삽입
+	public boolean insertHiox(Map<String, Object> params);
+	public boolean multiInsertHiox(List<Map<String, Object>> params);
 }

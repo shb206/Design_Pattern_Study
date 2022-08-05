@@ -63,4 +63,12 @@ public class HioxServiceImpl implements HioxService {
 			return 0;
 		}
 	}
+	@Override
+	public boolean insertHiox(Map<String, Object> params) throws Exception {
+		return mapper.insertHiox(params);
+	}
+	@Override
+	public boolean multiInsertHiox(List<Map<String, Object>> params) throws Exception {
+		return mapper.multiInsertHiox(params);
+	}
 }

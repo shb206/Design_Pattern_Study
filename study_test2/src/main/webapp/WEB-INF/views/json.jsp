@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h3>JSON 파싱 페이지입니다.</h3>
+	<p id="ptest"></p>
 	
 	<div id="gridArea">
 		<input type="button" id="reset_btn" style="height:30px;" value="초기화"/>

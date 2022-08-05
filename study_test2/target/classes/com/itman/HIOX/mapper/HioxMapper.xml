@@ -73,4 +73,43 @@
 			#{data}
 		</foreach>
 	</delete>
+	
+	<insert id="insertHiox" parameterType="hashMap" >
+		INSERT INTO hiox_test_2 (
+			choose,
+			texture,
+			thickness,
+			size
+		)
+		VALUES(
+			#{choose},
+			#{texture},
+			#{thickness},
+			#{size}
+		)
+	</insert>
+	
+	<insert id="multiInsertHiox" parameterType="hashMap">
+		<!-- <foreach collection="list" item="item" separator=";"> -->
+			INSERT INTO hiox_test_2 (
+				choose,
+				texture,
+				thickness,
+				size
+			)
+			VALUES 
+			<foreach collection="list" item="item" separator=",">
+				(#{item.choose},
+				#{item.texture},
+				#{item.thickness},
+				#{item.size})
+			</foreach>
+			<!-- (
+				#{item.choose},
+				#{item.texture},
+				#{item.thickness},
+				#{item.size}
+			) -->
+<!-- 		</foreach> -->
+	</insert>
 </mapper>

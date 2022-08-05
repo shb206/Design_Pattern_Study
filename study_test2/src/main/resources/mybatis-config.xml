@@ -8,5 +8,9 @@
  		<!-- <typeAlias alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/> -->
  		<typeAlias alias="student"  type="com.itman.main.util.Student"/>
  	</typeAliases>
- 
+ 	
+ 	
+ 	<!-- <mappers>
+ 	 	<mapper resource="com/itman/HIOX/mapper/TestMapper.xml"/>
+ 	 </mappers> -->
 </configuration>

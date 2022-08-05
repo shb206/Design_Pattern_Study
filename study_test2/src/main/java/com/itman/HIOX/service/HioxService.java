@@ -10,4 +10,6 @@ public interface HioxService {
 	public boolean releaseHiox(List<Integer> list);
 	public boolean releaseCancelHiox(List<Integer> list);
 	public boolean deleteHiox(List<Integer> list);
+	public boolean insertHiox(Map<String, Object> params) throws Exception;
+	public boolean multiInsertHiox(List<Map<String, Object>> params) throws Exception;
 }

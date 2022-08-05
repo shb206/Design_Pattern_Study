@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<!-- Console 출력을 위한 Appender -->
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %5p [%c] %m%n" />
+		</Console>
+		<!-- 로그파일 생성을 위한 Appender -->
+		<RollingFile name="dailyRollingFileAppender" fileName="c:/Study/log_test/test.log" filePattern="c:/Study/log_test/test_%d{yyyy-MM-dd}.log" append="true">
+			<PatternLayout pattern="%d %5p [%c] %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="java.sql" level="INFO" additivity="false">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="dailyRollingFileAppender" />
+		</Logger>
+		<Logger name="egovframework" level="DEBUG" additivity="false">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="dailyRollingFileAppender" />
+		</Logger>
+		<Logger name="jdbc.sqltiming" level="INFO" additivity="false">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="dailyRollingFileAppender" />
+		</Logger>
+		<Logger name="org.springframework" level="INFO" additivity="false">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="dailyRollingFileAppender" />
+		</Logger>
+		<Root level="INFO">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="dailyRollingFileAppender" />
+		</Root>
+	</Loggers>
+</Configuration>

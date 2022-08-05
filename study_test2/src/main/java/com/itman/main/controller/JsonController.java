@@ -1,6 +1,9 @@
 package com.itman.main.controller;
 
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,8 +11,10 @@ import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +35,24 @@ public class JsonController {
 	@RequestMapping(value="/json")
 	public String main(Model model) throws Exception {
 		return "json";
+	}
+	
+	@RequestMapping(value="TestJson", produces = "application/json")
+	@ResponseBody
+	public JSONObject test() {
+		Map<String,Object> msg = new HashMap<String, Object>();
+		try {
+			//System.out.println(">>>> test >>>");
+			
+			ClassPathResource resource = new ClassPathResource("file/jTest.json");
+			InputStreamReader jInput = new InputStreamReader(resource.getInputStream(), "UTF-8");
+			JSONObject jobj = (JSONObject) new JSONParser().parse(jInput);
+			return jobj;
+		} catch (Exception e) {
+			e.printStackTrace();
+			//msg.put("FAIL", "non_data");
+		}
+		return null;
 	}
 	
 	@RequestMapping(value="selectJsonAll", method=RequestMethod.POST, headers="Accept=application/json",produces = "application/json")

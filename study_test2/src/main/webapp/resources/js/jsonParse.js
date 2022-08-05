@@ -160,4 +160,16 @@ $(document).ready(function() {
 		//console.log(queryString);
 		gf_Transaction_min("delete", "/deleteJson", "POST", queryString, 1);
 	});
+	fetch("/TestJson").then((response) => {
+	    if(response.ok) {
+	      return response.json();
+	    }
+		}).then((data) => {
+		console.log("json >> " + JSON.stringify(data));
+		var pp = document.getElementById("ptest");
+		var pch = document.createElement('div');
+		var tes = document.createTextNode(JSON.stringify(data));
+	    pch.appendChild(tes);
+	    pp.appendChild(pch);
+	})
 })

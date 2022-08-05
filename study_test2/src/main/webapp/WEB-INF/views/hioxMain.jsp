@@ -7,21 +7,13 @@
 <head>
 	<link rel="stylesheet" href="/resources/css/tui-grid.css"/>
 	<link rel="stylesheet" href="/resources/css/dropDown.css"/>
-	<link rel="stylesheet" href="/resources/css/aTagStyle.css"/>
+	<link rel="stylesheet" href="/resources/css/hiox_practice.css"/>
 	
 	<script src="/resources/js/jquery-3.1.1.js"></script>
 	<script src="/resources/js/grid/tui-grid.js"></script>
 	<script src="/resources/js/cmm/comtran.js"></script>
 	<script src="/resources/js/hiox_grid.js"></script>
 	<script src="/resources/js/dropDown.js"></script>
-
-	<style type="text/css">
-		.box { border:1px solid; background-color:rgba(80, 80, 80, 0.5);
-				color:#000000; width:200px; height:30px; line-height:30px; text-align:center;}
-		table { width : 100%; text-align:center;}
-		select { width:100px; height:20px; margin-left:10px; margin-right:10px;}
-		.page { margin:3px; width:30px; height:30px; }
-	</style>
 <meta charset="UTF-8">
 <title>HIOX Practice Page</title>
 </head>
@@ -69,15 +61,17 @@
 		<button id="reset_btn">초기화</button>
 		<!-- 페이징 버튼 영역 -->
 		<div style="text-align:center;">
-			<button class="pagebtn" id="firstPage">◀◀ </button>
-			<button class="pagebtn" id="prevPageList">◀ </button>
+			<button class="pagebtn left" id="firstPage" style="width:3rem;">◀◀ </button>
+			<button class="pagebtn left" id="prevPageList">◀ </button>
 			
 			<!-- 페이징 버튼 생성 영역 -->
 			<div id="pagingArea" style="display:inline;"></div>
 			
-			<button class="pagebtn" id="nextPageList">▶ </button>
-			<button class="pagebtn" id="lastPage">▶▶ </button>
+			<button class="pagebtn right" id="nextPageList">▶ </button>
+			<button class="pagebtn right" id="lastPage" style="width:3rem;">▶▶ </button>
 		</div>
 	</div>
+	<button id="insertTest">TEST</button>
+	<button id="insertTest2">TEST2</button>
 </body>
 </html>

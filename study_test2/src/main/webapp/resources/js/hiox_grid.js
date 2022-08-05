@@ -59,6 +59,20 @@ function initEvents(){
 		
 		initDatas();
 	});
+	$("#insertTest").on("click",function(event){
+		event.preventDefault();
+		
+		var data = { "test" : "value" };
+		
+		gf_Transaction_min("insertTest", "/insertTestHiox", "POST", data, 1);
+	});
+	$("#insertTest2").on("click",function(event){
+		event.preventDefault();
+		
+		var data = { "test" : "value2" };
+		
+		gf_Transaction_min("insertTest", "/insertTestHiox2", "POST", data, 1);
+	});
 	$("#search_btn").on("click",function(event){
 		event.preventDefault();
 		
@@ -177,11 +191,14 @@ var gf_Transaction_min = (id, url, httpMethod, params, callback) => {
 function f_callback(trId, data){
 	if(data["FAIL"]) {
 		alert(data["FAIL"]);
+		initDatas();
+		//dataMap.clear();
 	}
 
 	switch(trId) {
 		case "searchHiox" :
 			grid.resetData(data["SUCC"]);
+			pageData.set("currentPage", data["page"]);
 			makeBtnList(data["pageList"]);
 			break;
 		case "releaseHiox" :
@@ -189,6 +206,9 @@ function f_callback(trId, data){
 			break;
 		case "delete" :
 			pageSetAndTrans(pageData.get("currentPage"));
+			break;
+		case "insertTest" :
+			alert(data["SUCC"]);
 			break;
 	}
 }
@@ -253,6 +273,11 @@ function makeBtnList(data) {
 		text = document.createTextNode(String(i));
 		btn.className = "page";
 		btn.value = String(i);
+		
+		if(i == pageData.get("currentPage")) {
+			btn.style.backgroundColor = "pink";
+		}
+		
 		btn.appendChild(text);
 		pagingArea.appendChild(btn);
 	}
