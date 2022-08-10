@@ -32,7 +32,6 @@ public class Main {
 		try {
 			node.parse(new Context(context));
 			System.out.println("node = " + node);
-			System.out.println(new Context(context));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
